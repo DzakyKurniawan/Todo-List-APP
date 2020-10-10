@@ -1,0 +1,10 @@
+E:\DataKerja_MII\2020\AppTODO\Data\bin\Debug\netcoreapp3.1\appsettings.json
+E:\DataKerja_MII\2020\AppTODO\Data\bin\Debug\netcoreapp3.1\Data.deps.json
+E:\DataKerja_MII\2020\AppTODO\Data\bin\Debug\netcoreapp3.1\Data.runtimeconfig.json
+E:\DataKerja_MII\2020\AppTODO\Data\bin\Debug\netcoreapp3.1\Data.runtimeconfig.dev.json
+E:\DataKerja_MII\2020\AppTODO\Data\bin\Debug\netcoreapp3.1\Data.dll
+E:\DataKerja_MII\2020\AppTODO\Data\bin\Debug\netcoreapp3.1\Data.pdb
+E:\DataKerja_MII\2020\AppTODO\Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfoInputs.cache
+E:\DataKerja_MII\2020\AppTODO\Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfo.cs
+E:\DataKerja_MII\2020\AppTODO\Data\obj\Debug\netcoreapp3.1\Data.dll
+E:\DataKerja_MII\2020\AppTODO\Data\obj\Debug\netcoreapp3.1\Data.pdb

@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Main/_LayoutAdministration.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+        a.disabled {
+            pointer-events:none;
+            cursor:default;
+            color:gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="container-fluid">
+
+            <div class="text-center">
+                <br/>
+                <hr/>
+                <h1 class="display-4">Welcome</h1>
+                <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+@section Scripts {
+    <!-- Bootstrap 4 -->
+    <script src="~/dashboard/plugins/moment/moment-with-locales.min.js"></script>
+    <script src="~/dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables -->
+    <script src="~/dashboard/plugins/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="~/dashboard/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/dashboard/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/dashboard/dist/js/demo.js"></script>
+    <script src="~/dashboard/plugins/moment/moment.js"></script>
+}

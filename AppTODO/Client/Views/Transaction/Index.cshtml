@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Main/_LayoutAdministration.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        a.disabled {
+            pointer-events: none;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Item</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Item</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+
+            <div class="card">
+                <div class="card-body">
+                    <p>
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox()"><i class="fas fa-plus"></i></button>
+                    </p>
+                    <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Excel", "Transaction")'">Export To XLS</button>
+                    <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("CSV", "Transaction")'">Export To CSV</button>
+                    <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Report", "Transaction")'">Export To PDF</button>
+
+                    <div class="table-responsive">
+                        <table id="tableTransaction" class="table table-striped table-bordered dt-responsive nowrap" style="overflow-x:auto;">
+                            <thead>
+                                <tr>
+                                    <th style="background-color:darkcyan">Item</th>
+                                    <th style="background-color:darkcyan">Quantity</th>
+                                    <th style="background-color:darkcyan">Total Price</th>
+                                    <th style="background-color:darkcyan">TransactionDate</th>
+                                    <th style="background-color:darkcyan">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="transactionTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="container">
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Add New ToDo List</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                            <div class="form-group" hidden="hidden">
+                                                <label for="Id">Id:</label>
+                                                <input type="text" class="form-control" id="Id" placeholder="Enter Id" name="Id">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Item">Item:</label>
+                                                <select id="Item" class="pc form-control" name="Item"> </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Quantity">Quantity:</label>
+                                                <input type="number" class="form-control" id="Quantity" placeholder="Enter Name Quantity" name="Quantity">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="TotalPrice">TotalPrice:</label>
+                                                <input type="number" class="form-control" id="TotalPrice" name="Total Price">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Datepicker">Date & Time:</label>
+                                                <div class="input-group-prepend">
+                                                    <button type="button" id="toggle" class="input-group-text"><i class="fa fa-calendar"></i></button>
+                                                    <input type="datetime-local" id="Time" />
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" id="submit" class="btn btn-primary" onclick="Create();">Submit</button>
+                                        <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" id="update" class="btn btn-primary" data-dismiss="modal" onclick="Update();">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <script src="~/dashboard/plugins/moment/moment-with-locales.min.js"></script>
+        <style>
+            .btn {
+                background-color: #44e5b9;
+                border-color: #44e5b9;
+                color: #ffffff;
+            }
+        </style>
+</body>
+</html>
+@section Scripts {
+
+    <script src="~/assets/plugins/jqueryui/jquery-ui.js"></script>
+    <link href="~/assets/plugins/jqueryui/jquery-ui.css" rel="stylesheet" />
+    <!-- Bootstrap 4 -->
+    <script src="~/lib/timepicker/jquery.datetimepicker.full.js"></script>
+    @*<script src="~/dashboard/plugins/moment/moment-with-locales.min.js"></script>*@
+    <script src="~/dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables -->
+    <script src="~/dashboard/plugins/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="~/dashboard/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/dashboard/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/dashboard/dist/js/demo.js"></script>
+    <script src="~/dashboard/plugins/moment/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="~/scripts/transactionScript/transactionScript.js"></script>
+}
